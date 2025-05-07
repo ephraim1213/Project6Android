@@ -37,7 +37,11 @@ fun DiceWithButtonAndImage(modifier : Modifier = Modifier) {
     Column (
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally
-    ) {}
+    ) {
+        Button(onClick = { /*TODO*/}) {
+            Text(stringResource(R.string.roll))
+        }
+    }
 
 }
 
