@@ -22,6 +22,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.ui.unit.dp
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+
 
 
 
@@ -51,16 +56,27 @@ fun DiceRollerApp()  {
 
 @Composable
 fun DiceWithButtonAndImage(modifier : Modifier = Modifier) {
+    var result by remember { mutableStateOf(1)}
+    val imageResource = when (result) {
+        1 -> R.drawable.dice_1
+        2 -> R.drawable.dice_2
+        3 -> R.drawable.dice_3
+        4 -> R.drawable.dice_4
+        5 -> R.drawable.dice_5
+        else -> R.drawable.dice_6
+
+    }
     Column (
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
-            painter = painterResource(R.drawable.dice_1),
-            contentDescription = "1"
+            painter = painterResource(imageResource),
+            contentDescription = result.toString()
         )
         Spacer(modifier = Modifier.height(16.dp))
-        Button(onClick = { /*TODO*/}) {
+        Button(onClick = { result = (1..6).random()
+        }){
             Text(stringResource(R.string.roll))
         }
     }
