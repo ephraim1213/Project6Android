@@ -1,19 +1,15 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
+# Ignore build artifacts
 /build
+/app/build
+/.gradle
 /captures
 .externalNativeBuild
 .cxx
-local.properties
 
-# Project exclude paths
-/app/
-/gradle/
+# Ignore local settings
+local.properties
+.idea/
+*.iml
+
+# Ignore macOS file
+.DS_Store
